@@ -4,39 +4,32 @@ class CreateTodo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      description: '',
-      responsible: '',
-      priority: '',
+      title: '',
+      body: '',
+
       completed: false
     }
   }
-  handleDescription = e => {
+  handletitle = e => {
     this.setState(() => ({
-      description: e.target.value
+      title: e.target.value
     }))
   }
   handleResponsible = e => {
     this.setState(() => ({
-      responsible: e.target.value
-    }))
-  }
-  handlePriority = e => {
-    this.setState(() => ({
-      priority: e.target.value
+      body: e.target.value
     }))
   }
 
   handleSubmit = e => {
     e.preventDefault()
     console.log(`form submitted`)
-    console.log(`todo description is ${this.state.description}`)
-    console.log(`todos responsible is ${this.state.responsible}`)
-    console.log(`todos priority ${this.state.priority}`)
+    console.log(`todo title is ${this.state.title}`)
+    console.log(`todos body is ${this.state.body}`)
 
     this.setState(() => ({
-      description: '',
-      responsible: '',
-      priority: '',
+      title: '',
+      body: '',
       completed: false
     }))
   }
@@ -47,44 +40,23 @@ class CreateTodo extends React.Component {
         <h3>Create New Todo</h3>
         <form onSubmit={this.handleSubmit}>
           <div className='form-group'>
-            <label>Description: </label>
-            <input type='text' className='form-control' />
+            <label>title: </label>
+            <input
+              value={this.state.title}
+              onChange={e => this.setState({ title: e.target.value })}
+              type='text'
+              className='form-control'
+            />
           </div>
           <div className='form-group'>
-            <label>Responsible: </label>
-            <input type='text' className='form-control' />
-          </div>
-          <div className='form-group'>
-            <div className='form-check form-check-inline'>
-              <input
-                className='form-check-input'
-                type='radio'
-                name='priorityOptions'
-                id='priorityLow'
-                value='Low'
-              />
-              <label className='form-check-label'>Low</label>
-            </div>
-            <div className='form-check form-check-inline'>
-              <input
-                className='form-check-input'
-                type='radio'
-                name='priorityOptions'
-                id='priorityMedium'
-                value='Medium'
-              />
-              <label className='form-check-label'>Medium</label>
-            </div>
-            <div className='form-check form-check-inline'>
-              <input
-                className='form-check-input'
-                type='radio'
-                name='priorityOptions'
-                id='priorityHigh'
-                value='High'
-              />
-              <label className='form-check-label'>High</label>
-            </div>
+            <label>body: </label>
+
+            <textarea
+              value={this.state.body}
+              onChange={e => this.setState({ body: e.target.value })}
+              type='text'
+              className='form-control'
+            />
           </div>
 
           <div className='form-group'>
