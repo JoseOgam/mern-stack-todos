@@ -14,7 +14,7 @@ class App extends React.Component {
         <div className='container'>
           <nav className='navbar navbar-expand-lg navbar-light bg-light'>
             <a
-              class='navbar-brand'
+              className='navbar-brand'
               href='https://github.com/JoseOgam'
               target='_blank'
               rel='noopener noreferrer'
