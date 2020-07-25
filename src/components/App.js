@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Logo from '../logo192.png'
 
 import TodoList from './TodosLists'
 import EditTodo from './EditTodos'
@@ -14,11 +15,16 @@ class App extends React.Component {
           <nav className='navbar navbar-expand-lg navbar-light bg-light'>
             <a
               class='navbar-brand'
-              href='https://codingthesmartway.com'
+              href='https://github.com/JoseOgam'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img width='30' height='30' alt='CodingTheSmartWay.com' />
+              <img
+                src={Logo}
+                width='30'
+                height='30'
+                alt='CodingTheSmartWay.com'
+              />
             </a>
             <Link to='/' className='navbar-brand'>
               MERN-Stack Todo App
