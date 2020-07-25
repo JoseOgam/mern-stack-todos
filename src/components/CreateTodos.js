@@ -26,6 +26,7 @@ class CreateTodo extends React.Component {
     console.log(`form submitted`)
     console.log(`todo title is ${this.state.title}`)
     console.log(`todos body is ${this.state.body}`)
+    console.log(`the state of task is ${this.state.completed}`)
 
     this.setState(() => ({
       title: '',
