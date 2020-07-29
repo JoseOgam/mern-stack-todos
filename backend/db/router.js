@@ -13,4 +13,13 @@ router.post('/todos', async (req, res) => {
   }
 })
 
+router.get('/todos', async (req, res) => {
+  try {
+    var todo = await Todo.find({})
+    res.send(todo)
+  } catch (e) {
+    res.status(400).send(e)
+  }
+})
+
 module.exports = router
