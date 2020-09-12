@@ -21,5 +21,22 @@ router.get("/todos", async (req, res) => {
     res.status(400).send(e);
   }
 });
+router.patch("/update/:id", (req, res) => {
+  Todo.findById(req.params.id, function (err, todo) {
+    if (!todo) res.status(404).send("data is not found");
+    else todo.title = req.body.title;
+    todo.body = req.body.body;
+    todo.completed = req.body.completed;
+
+    todo
+      .save()
+      .then((todo) => {
+        res.json("Todo updated!");
+      })
+      .catch((err) => {
+        res.status(400).send("Update not possible");
+      });
+  });
+});
 
 module.exports = router;
