@@ -23,11 +23,13 @@ router.get("/todos", async (req, res) => {
 });
 router.patch("/update/:id", (req, res) => {
   Todo.findById(req.params.id, function (err, todo) {
-    if (!todo) res.status(404).send("data is not found");
-    else todo.title = req.body.title;
-    todo.body = req.body.body;
-    todo.completed = req.body.completed;
-
+    if (!todo) {
+      res.status(404).send("data is not found")
+    } else {
+      todo.title = req.body.title;
+      todo.body = req.body.body;
+      todo.completed = req.body.completed;
+    }
     todo
       .save()
       .then((todo) => {

@@ -29,7 +29,7 @@ class TodoList extends React.Component {
       });
   }
   todoList() {
-    return this.state.todos.map(function (currentTodo, i) {
+    return this.state.todos.map((currentTodo, i) => {
       return <Todo todo={currentTodo} key={i} />;
     });
   }
@@ -42,6 +42,7 @@ class TodoList extends React.Component {
             <tr>
               <th>Title</th>
               <th>Body</th>
+              <th>State</th>
               <th>Action</th>
             </tr>
           </thead>
