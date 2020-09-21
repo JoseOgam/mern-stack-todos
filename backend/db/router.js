@@ -5,6 +5,7 @@ var Todo = require("./models");
 var Todo = require("./models");
 router.post("/todos", async (req, res) => {
   var todo = new Todo(req.body);
+  console.log(req.body);
   try {
     await todo.save();
     res.status(201).send(todo);
@@ -16,7 +17,7 @@ router.post("/todos", async (req, res) => {
 router.get("/todos", async (req, res) => {
   try {
     var todo = await Todo.find({});
-    res.send(todo);
+    res.status(200).send(todo);
   } catch (e) {
     res.status(400).send(e);
   }
@@ -24,7 +25,7 @@ router.get("/todos", async (req, res) => {
 router.patch("/update/:id", (req, res) => {
   Todo.findById(req.params.id, function (err, todo) {
     if (!todo) {
-      res.status(404).send("data is not found")
+      res.status(404).send("data is not found");
     } else {
       todo.title = req.body.title;
       todo.body = req.body.body;
